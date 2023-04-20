@@ -69,3 +69,55 @@ function ex3S5(){
 
     }
 }
+
+function ex4S5(){
+    console.log(Math.pow(2,2) );
+    console.log(Math.pow(3,2) );
+    console.log(Math.pow(18,2) );
+}
+
+
+// Verifica se a velocidade está dentro da permitida
+function ex5S5(){
+    let velocidadeCarro = 86;
+    let velocidadePermitida = 80;
+    if (velocidadeCarro > (velocidadePermitida*1,07))
+        console.log(`${velocidadeCarro} está acima da velocidade permitida: ${velocidadePermitida}`);
+    else
+        console.log(`${velocidadeCarro} está dentro da velocidade permitida: ${velocidadePermitida}`);
+}
+
+function ex6S5(){
+    let idadePessoa = 20, idadePermitida = 18;
+    if (idadePessoa > idadePermitida)
+        console.log(`Idade permitida: ${idadePermitida}`);
+    else
+        console.log(`${idadePessoa}não permite ela estar dirigindo. Idade permitida: ${idadePermitida}`);
+}
+
+function ex7S5(){
+    for(let i = 0 ; i < 10 ; i++)
+        console.log(i);
+}
+
+function ex8S5(){
+    for(let i = 100 ; i > 50 ; i--)
+        console.log(i);
+}
+
+function ex9S5(){
+    for(let i = 0 ; i < 50 ; i++)
+        if(i % 2 == 0)
+            console.log("PAR!!");
+        else
+            console.log("IMPAR!!");
+
+}
+
+function ex10S5(numero){
+    if( numero % numero == 0 && numero % 1 == numero )
+        console.log("Primo");
+    else
+        console.log("Não primo");
+}
+
