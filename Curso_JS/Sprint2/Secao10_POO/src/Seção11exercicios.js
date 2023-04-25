@@ -122,3 +122,37 @@ Fox.dirigir(2000) // erro
 
 //EX 5
 
+class Conta5 {
+    constructor(saldoCC,saldoCP,juros){
+        this.saldo = saldoCC
+        this.saldo = saldoCP
+        this.juros = juros
+    }
+
+    deposito(valor){
+        this.saldoCC += valor
+    }
+
+    saque(Valor){
+        this.saldoCC -= Valor
+    }
+
+    transferirDinheiroCP(valor){
+        this.saldoCC -=valor
+        this.saldoCP += valor
+    }
+    transferirDinheiroCC(valor){
+        this.saldoCC +=valor
+        this.saldoCP -= valor
+    }
+    juros(){
+        let juros = (saldoCP * this.juros / 100)
+        this.saldoCP+=juros
+    }
+}
+
+class ContaEspecial extends Conta{
+    constructor(saldoCC,saldoCP,juros){
+        super(saldoCC,saldoCP,juros*2)
+    }
+}
