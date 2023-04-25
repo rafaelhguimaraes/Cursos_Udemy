@@ -99,8 +99,8 @@ function verificaTamanho(text){
         console.log("Texto dentro do limite")
 }
 
-verificaTamanho('RafaelHenrique')
-verificaTamanho('Rafael')
+//verificaTamanho('RafaelHenrique')
+//verificaTamanho('Rafael')
 
 function potencia(base,pot){
     return console.log(base**pot);
@@ -114,3 +114,16 @@ function ex10(num){
 }
 
 //ex10(10)
+let obj = {
+    'chave1': 1,
+    'chave2': 2,
+    'chave3': 3,
+}
+console.log(Object.keys(obj))
+
+// forEach
+let names = ['Matheus','Rafael','Mariana']
+names.forEach(element => {
+    console.log(element);
+});
+
