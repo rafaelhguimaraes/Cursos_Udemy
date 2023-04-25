@@ -57,5 +57,68 @@ class Carrinho_Compras {
 //carrinho.removeItens('Arroz',10.99,1)
 //console.log(carrinho.itens)
 
+// EX3
 
+class Endereco{
+    constructor(rua, bairro, cidade, estado) {
+        this.rua = rua
+        this.bairro = bairro
+        this.cidade = cidade
+        this.estado = estado
+    }
+
+    setNovaRua(novaRua){
+        this.rua = novaRua
+    }
+    setNovoBairro(NovoBairro){
+        this.bairro = NovoBairro
+    }
+    setNovaRua(novaCidade){
+        this.cidade = novaCidade
+    }
+    setNovaRua(novoEstado){
+        this.estado = novoEstado
+    }
+}
+
+let end = new Endereco('Rua Brasil', 'São Lucas', 'Uberlandia', 'MG')
+//console.log(end)
+
+// EX4
+class Carro{
+    constructor(marca,cor,gasolina_rest){
+        this.marca = marca
+        this.cor = cor
+        this.gasolina_rest = gasolina_rest
+        this.consumo = 10
+    }
+    dirigir(dist){
+        let litros = dist/this.consumo
+        if(litros > this.gasolina_rest){
+            let litrosNecessario = litros - this.gasolina_rest
+            console.log(`Não há gasolina suficiente para andar ${dist} km.`)
+            console.log(`É necessario abastecer ${litrosNecessario} litros para rodar ${dist} km`)
+        }  
+        else{
+            for(let i = 1; i <= litros; i++){
+                console.log(`${this.gasolina_rest - i} + litros restantes.`)
+            }
+            this.gasolina_rest -=litros     
+        }            
+    }
+
+    abastecer(litros){
+        this.gasolina_rest += litros
+    }
+
+}
+
+let Fox = new Carro('Vw','branco',30)
+Fox.dirigir(290)
+console.log(Fox.gasolina_rest)
+Fox.abastecer(5)
+console.log(Fox.gasolina_rest)
+Fox.dirigir(2000) // erro
+
+//EX 5
 
