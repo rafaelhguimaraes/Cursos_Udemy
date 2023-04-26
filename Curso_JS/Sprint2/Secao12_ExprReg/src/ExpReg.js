@@ -49,3 +49,5 @@ console.log(validarEmail.test("rafalalai21@gmail.com"))
 console.log(validarEmail.test("rafaelguimaraes@ufu.br"))
 console.log(validarEmail.test("rafalalai21@gmailcom"))
 console.log(validarEmail.test("rafalalai21gmail.com"))
+
+
