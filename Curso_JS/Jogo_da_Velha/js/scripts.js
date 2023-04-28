@@ -1,10 +1,10 @@
 let x = document.querySelector(".x")
 let o = document.querySelector(".o")
 let boxes = document.querySelectorAll(".box")
-let butttons = document.querySelectorAll("#buttons-container button")
+let buttons = document.querySelectorAll("#buttons-container button")
 let messageContainer = document.querySelector("#message")
 let messageText = document.querySelector("#message p")
-let secondPlayet;
+let secondPlayer;
 
 // Contando numero de jogadas
 let player1 = 0, player2 = 0
@@ -16,16 +16,29 @@ for(let i =0; i < boxes.length; i++) {
     //evento de click
     boxes[i].addEventListener("click", function() {
         let el= verificaJogador(player1,player2);
-        if (el == x)
-            player1++
-        else
-            player2++
+ //       if (el == x)
+   //         player1++
+     //   else
+       //     player2++
 
         // verifica se já tem uma jogada no bloco
+        
         if(this.childNodes.length == 0){
+
             let cloneEl = el.cloneNode(true)
+
             this.appendChild(cloneEl);
-            // eu n coloquei if aqui n
+
+            if(player1 == player2){
+                player1++
+                if(secondPlayer == 'ai-player'){
+                    // função q executa jogada
+                    computerPlay();
+                    player2++
+                }
+            } else {
+                player2++
+            }
         }
 
         // checa ganhador
@@ -44,6 +57,24 @@ function verificaJogador(player1,player2){
         el = o
     }
     return el
+}
+
+// evento pra saber o modo de jogo
+
+for(let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click",function(){
+        secondPlayer = this.getAttribute("id")
+
+        for(let j = 0; j < buttons.length; j++){
+            buttons[j].style.display = "none"
+        }
+
+        setTimeout(function(){
+            let container = document.querySelector("#container")
+            container.classList.remove("hide")
+        }, 500)
+
+    })
 }
 
 function checkWinCondition(){
@@ -202,3 +233,33 @@ function declareWinner(winner){
     }
 
 }
+
+// lógica AI do CPU
+function computerPlay(){
+    let cloneO = o.cloneNode(true)
+    counter = 0;
+    filled = 0; // preenchido
+
+
+    for(let i =0; i< boxes.length; i++) {
+        let random = Math.floor(Math.random() * 5)
+
+        // só preenche caso esteja vazio o filho
+    if(boxes[i].childNodes[0] == undefined){
+        if(random <= 1){
+            boxes[i].appendChild(cloneO)
+            counter++
+            break;
+        }
+        // ve qnts estao preenchidos
+    } else{
+            filled++
+        }
+            
+    }
+
+    if(counter == 0 && filled < 9){
+        computerPlay()
+    }
+
+    }
