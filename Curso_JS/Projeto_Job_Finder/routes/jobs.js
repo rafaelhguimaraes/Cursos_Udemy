@@ -6,6 +6,23 @@ router.get('/test', (req, res) => {
     res.send('deu certo');
 });
 
+
+// detalhe da vaga -> view/1, view/2
+router.get('/view/:id', (req, res) => Job.findOne({
+    where: {id: req.params.id}
+  }).then(job => {
+  
+    res.render('view', {
+      job
+    });
+  
+  }).catch(err => console.log(err)));
+
+// simplesmente abre a view de ADD
+router.get('/add', (req,res) =>{
+    res.render('add');
+})
+
 // add job por método HTTP POST
 router.post('/add', (req,res) => {
 
